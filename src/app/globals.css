@@ -1,0 +1,331 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Palette de couleurs cohérente - Tons bleus et gris */
+    --primary: 221 83% 53%;      /* Bleu principal */
+    --primary-dark: 221 83% 43%;  /* Bleu foncé */
+    --primary-light: 221 83% 73%; /* Bleu clair */
+    --secondary: 215 25% 27%;     /* Gris foncé */
+    --accent: 210 40% 96%;        /* Gris très clair */
+    --background: 0 0% 100%;      /* Blanc */
+    --foreground: 215 25% 27%;    /* Texte principal */
+    --muted: 215 16% 47%;         /* Texte secondaire */
+    --border: 214 32% 91%;        /* Bordures */
+    
+    /* Variables Tailwind standard */
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+    --primary-foreground: 210 40% 98%;
+    --secondary-foreground: 215 25% 27%;
+    --muted-foreground: 215 16% 47%;
+    --accent-foreground: 215 25% 27%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 215 25% 27%;
+    --foreground: 210 40% 98%;
+    --card: 215 25% 27%;
+    --card-foreground: 210 40% 98%;
+    --popover: 215 25% 27%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 221 83% 73%;
+    --primary-foreground: 215 25% 27%;
+    --secondary: 215 25% 37%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 25% 37%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 215 25% 37%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 215 25% 37%;
+    --input: 215 25% 37%;
+    --ring: 221 83% 73%;
+  }
+}
+
+@layer base {
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  * {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer components {
+  /* Dégradés harmonisés */
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary-dark)) 0%, hsl(var(--primary)) 100%);
+  }
+
+  .hero-gradient-dark {
+    background: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--primary-dark)) 100%);
+  }
+
+  .philosophy-gradient {
+    background: linear-gradient(90deg, hsl(var(--primary-dark)) 0%, hsl(var(--primary)) 50%, hsl(var(--primary-light)) 100%);
+  }
+  
+  /* Cartes et effets */
+  .card-hover {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Animations */
+  .fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  .slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+
+  .scale-in {
+    animation: scaleIn 0.5s ease-out;
+  }
+
+  .bounce-in {
+    animation: bounceIn 0.8s ease-out;
+  }
+
+  /* Images placeholders */
+  .image-placeholder {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--border)) 100%);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--muted));
+    font-size: 0.875rem;
+    border: 2px dashed hsl(var(--border));
+    transition: all 0.3s ease;
+  }
+
+  .image-placeholder:hover {
+    background: linear-gradient(135deg, hsl(var(--border)) 0%, hsl(var(--muted)) 100%);
+    border-color: hsl(var(--muted));
+  }
+
+  /* Icônes de services */
+  .service-icon {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .service-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Icônes d'avantages */
+  .advantage-icon {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--primary-light)) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .advantage-icon:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, hsl(var(--primary-light)) 0%, hsl(var(--primary)) 100%);
+  }
+
+  /* Espacement des sections */
+  .section-padding {
+    padding: 6rem 0;
+  }
+
+  .hero-section {
+    padding: 8rem 0;
+  }
+
+  /* Typographie */
+  .elegant-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .script-title {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+  }
+
+  .modern-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  /* Cartes de statistiques */
+  .stats-card {
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--accent)) 100%);
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .stats-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Étapes du processus */
+  .process-step {
+    position: relative;
+    padding-left: 3rem;
+  }
+
+  .process-step::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: hsl(var(--primary));
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  /* Cartes de témoignages */
+  .testimonial-card {
+    background: hsl(var(--background));
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Boutons CTA */
+  .cta-button {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .cta-button-white {
+    background: white;
+    color: hsl(var(--primary));
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid hsl(var(--primary));
+    cursor: pointer;
+  }
+
+  .cta-button-white:hover {
+    background: hsl(var(--primary));
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* Icônes de contact modernes */
+  .contact-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+
+  .contact-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
